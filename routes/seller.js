@@ -8,7 +8,9 @@ router.get("/:city", auth, async(req, res) => {
     const cityName = req.params.city;
 
     try{
-    const sellersList = await User.find({ category: "seller", city : cityName })
+    const sellersList = await User.find({ category: "seller",
+     $expr: {
+        $eq: [{ $toLower: "$city" }, cityName.toLowerCase()] } })
 
     if(sellersList.length == 0){
         return res.send("No sellers present currently")
