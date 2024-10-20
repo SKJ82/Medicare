@@ -7,6 +7,7 @@ const auth = require("../middleware/auth");
 router.get("/requirements", auth, async (req, res) => {
   try {
     const unit = req.query.unit;
+    console.log(unit)
     const sellersList1 = [];
     const sellersList = await User.find({ category: "seller" });
     for (var i in sellersList) {
@@ -28,7 +29,7 @@ router.get("/requirements", auth, async (req, res) => {
     sendMail.Notification_of_buyers(
       sellersList1,
       req.user.email,
-      req.body[updat]
+      unit
     );
 
     res.send(sellersList1);
