@@ -4,10 +4,11 @@ const User = require("../models/user");
 const sendMail = require("../sendMail.js");
 const auth = require("../middleware/auth");
 
-router.get("/", auth, async(req, res) => {
+router.get("/:city", auth, async(req, res) => {
+    const cityName = req.params.city;
+
     try{
-    const sellersList1 = [];
-    const sellersList = await User.find({ category: "seller" });
+    const sellersList = await User.find({ category: "seller", city : cityName })
 
     if(sellersList.length == 0){
         return res.send("No sellers present currently")
