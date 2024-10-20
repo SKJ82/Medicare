@@ -33,8 +33,8 @@ The http endpoints created are:
               Required:It requires the Bearer auth token of the logged in client along with the data to be updated.
               Returns:json data of the deleted user.
   
-6. `/seller/` :request type -GET
-                description: It is used to return the list of all the sellers present.
+6. `/seller/:city` :request type -GET
+                description: It is used to return the list of all the sellers present in the requested city.
                 Required:It requires the Bearer auth token of the logged in client along with the data to be updated.
                 Returns:json data of all the sellers.
         
