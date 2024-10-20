@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 
 router.post("/signup", async (req, res) => {
-  const { category, name, email, password, phone_no, ventilator_cnt } =
+  const { category, name, email, password, phone_no, ventilator_cnt, city} =
     req.body;
 
   const check = await User.findOne({ email: email });
@@ -21,6 +21,7 @@ router.post("/signup", async (req, res) => {
     phone_no: phone_no,
     password: pass,
     ventilator_cnt: ventilator_cnt,
+    city: city
   });
   await user.save();
   sendMail.sendWelcomeMail(req.body.email);
