@@ -43,7 +43,8 @@ router.patch("/update", auth, async (req, res) => {
     "name",
     "email",
     "password",
-    "phone_no"
+    "phone_no",
+    "city"
   ];
   const isvalidUpdate = update.every((updat) => allowedUpdates.includes(updat));
   if (!isvalidUpdate) {
