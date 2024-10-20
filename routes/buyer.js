@@ -17,9 +17,7 @@ router.get("/requirements", auth, async (req, res) => {
         sellersList1.push(objectUser);
       }
     }
-    req.user.ventilator_cnt = unit;
-    await req.user.save();
-
+    
     if (sellersList1.length == 0){
       return res.send(
         "Currently No seller is available. We will get back to you as soon as we get your requirement.Please keep checking mails for updates"
