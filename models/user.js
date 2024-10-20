@@ -30,4 +30,8 @@ module.exports = mongoose.model("User", {
     type: Number,
     required : false
   },
+  city: {
+    type: String,
+    required: true
+  }
 });
